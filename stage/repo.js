@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         headers: {
-          Authorization: "bearer " + "12cf7022281673e5d8bc2e11ddbcc293fb438aa8",
+          Authorization: "bearer " + "6c996cd44b806046e3cd71a7f079e235cebff895",
         },
       }
     )
@@ -49,13 +49,17 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let value2 of Object.values(value1)) {
           // console.log(value2);
           for (let value3 of Object.values(value2)) {
-            
+            // console.log(value3);
+            //  let value4 = Object.values(value3)
+            //     console.log(value4);
             Object.values(value3).map((element) => {
               // console.log(element);
               let ownerName = element[0].node.owner.resourcePath
                 .split("")
                 .slice(1)
                 .join("");
+              // let item1Date = element[0].node.updatedAt.split('').splice(0, 10).join('');
+              // console.log(item1Date);
               document.querySelector(
                 ".secondary-heading"
               ).innerHTML = ownerName;

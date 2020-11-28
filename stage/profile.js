@@ -1,14 +1,3 @@
-const  body = {
-          query: `query { 
-            user(login: "GodfreySam"){
-              id
-              avatarUrl
-              name
-              bio
-              websiteUrl
-            }
-          }`
-        }
 
 document.addEventListener("DOMContentLoaded", () => {
     axios
@@ -28,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           headers: {
             Authorization:
-              "bearer " + "12cf7022281673e5d8bc2e11ddbcc293fb438aa8",
+              "bearer " + "6c996cd44b806046e3cd71a7f079e235cebff895",
           },
         }
       )
