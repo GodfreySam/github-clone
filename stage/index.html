@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Github Profile page</title>
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header item">
+      <div class="lg-header">
+        <div class="header-aside-left">
+        <span class="brand"><i class="fa fa-github"></i></span> 
+        <input class="header-input" type="text" placeholder="Search or jump to...">
+        <a href="">Pulls</a>
+        <a href="">Issues</a>
+        <a href="">Marketplace</a>
+        <a href="">Explore</a>
+      </div>
+     <div class="header-aside-right">
+      <i class="fa fa-bell"></i>
+      <i class="fa fa-plus"></i> 
+      <img src="" id="lg-header-img" class="header-img">
+     </div>
+    </div>
+      
+      <div class="sm-header">
+         <div class="sm-header-top">
+          <span id="sidebar-btn">
+          &#9776
+          </span>
+        <div class="brand">
+          <i class="fa fa-github"></i>  
+        </div>
+        <i class="fa fa-bell"></i>
+       </div>
+        <aside class="sidebar">
+          <input type="text" class="header-input" placeholder="Search or jump to...">
+          <ul>
+            <li><a href="">Dashboard</a></li>
+            <li><a href="">Pull request</a></li>
+            <li><a href="">Issues</a></li>
+            <li> <a href="">Marketplace</a></li>
+            <li><a href="">Explore</a></li>
+            <li><a href="">Settings</a></li>
+            <li class="sm-img">
+               <img src="" id="sm-header-img" class="header-img">
+                <span class="sm-secondary-heading"></span>
+              </li>
+            <li><i class="fa fa-sign-out"></i> Sign out</li>
+          </ul>
+        </aside>
+      </div>    
+    </header>
+    <div class="item repo-overview">
+      <div class="overview-heading"><i class="fas fa-book-open"></i> Overwiew</div>
+      <div class="overview-heading"><i class="fas fa-book"></i> Repositories</div>
+      <div class="overview-heading"><i class="far fa-chart-bar"></i> Projects</div>
+      <div class="overview-heading"><i class="fas fa-cube"></i> Packages</div>
+    </div>
+    <div class="item profile-area"></div>
+    <div class="item repo-area">
+      <form id="search-form">
+        <input type="text" placeholder="Find a repository...">
+        <div class="search-select">
+          <select name="" class="select">
+          <option value="">Type: All</option>
+          </select>
+          <select name="" class="select">
+              <option value="">Language: All</option>
+          </select> 
+        </div>
+      </form>
+        <button class="form-btn"><i class="fas fa-book"></i> New</button>
+      <div class="repo-item"></div>
+    </div>
+   
+  </div>
+  <script src="repo.js"></script>
+  <script src="profile.js"></script>
+  <script src="./control.js"></script>
+</body>
+</html>
