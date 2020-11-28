@@ -23,12 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
               bio
               websiteUrl
             }
-          }`
+          }`,
         },
         {
           headers: {
             Authorization:
-              "bearer " + "ba3d291c57bbbb952f6782e7357d5ce89aa90b9b",
+              "bearer " + "12cf7022281673e5d8bc2e11ddbcc293fb438aa8",
           },
         }
       )
@@ -36,12 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let userItems = response.data;
         // console.log(userItems);
 
-         for (let value of Object.values(userItems)) {
+        for (let value of Object.values(userItems)) {
           //  console.log(value);
-           let output = document.querySelector(".profile-area");
-           document.querySelector("#lg-header-img").src = value.user.avatarUrl;
-           document.querySelector("#sm-header-img").src = value.user.avatarUrl;
-           output.innerHTML = `
+          let output = document.querySelector(".profile-area");
+          document.querySelector("#lg-header-img").src = value.user.avatarUrl;
+          document.querySelector("#sm-header-img").src = value.user.avatarUrl;
+          output.innerHTML = `
               <div class="profile">
                 <div class="portrait">
                 <img class="profile-img" src="${value.user.avatarUrl}" alt="Profile Image"/>
@@ -54,6 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
               </div>
             `;
-         } 
+        }
       });     
 })

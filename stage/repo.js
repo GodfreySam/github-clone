@@ -36,33 +36,34 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         headers: {
-          Authorization: "bearer " + "ba3d291c57bbbb952f6782e7357d5ce89aa90b9b",
+          Authorization: "bearer " + "12cf7022281673e5d8bc2e11ddbcc293fb438aa8",
         },
       }
     )
     .then((response) => {
       let repoItems = response.data;
-        // console.log(repoItems);
+      // console.log(repoItems);
 
-        for (let value1 of Object.values(repoItems)) {
-          // console.log(value1);
-          for (let value2 of Object.values(value1)) {
-            // console.log(value2);
-            for (let value3 of Object.values(value2)) {
-              // console.log(value3);
-            //  let value4 = Object.values(value3)
-            //     console.log(value4);
-                Object.values(value3).map((element) => {
-                  // console.log(element);
-                  let ownerName = element[0].node.owner.resourcePath.split("").slice(1).join("");
-                  // let item1Date = element[0].node.updatedAt.split('').splice(0, 10).join('');
-                  // console.log(item1Date);
-                  document.querySelector(".secondary-heading").innerHTML = ownerName;
-                  document.querySelector(
-                    ".sm-secondary-heading"
-                  ).innerHTML = ownerName;
-                  let output = document.querySelector(".repo-item");
-                  output.innerHTML = `
+      for (let value1 of Object.values(repoItems)) {
+        // console.log(value1);
+        for (let value2 of Object.values(value1)) {
+          // console.log(value2);
+          for (let value3 of Object.values(value2)) {
+            
+            Object.values(value3).map((element) => {
+              // console.log(element);
+              let ownerName = element[0].node.owner.resourcePath
+                .split("")
+                .slice(1)
+                .join("");
+              document.querySelector(
+                ".secondary-heading"
+              ).innerHTML = ownerName;
+              document.querySelector(
+                ".sm-secondary-heading"
+              ).innerHTML = ownerName;
+              let output = document.querySelector(".repo-item");
+              output.innerHTML = `
                       <div class="repo">
                         <div class="line">
                           <h2 class="repo-title">${element[0].node.name}</h2>
@@ -283,10 +284,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                       </div>
                     `;
-                });           
-            }
+            });
           }
         }
-      
+      }
     });
 });
