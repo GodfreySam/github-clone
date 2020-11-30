@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         headers: {
-          Authorization: "bearer " + "6c996cd44b806046e3cd71a7f079e235cebff895",
+          Authorization: "bearer " + "af0f1afbf97d544e6192784823a248481bbe1127",
         },
       }
     )
