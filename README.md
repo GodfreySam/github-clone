@@ -1,4 +1,4 @@
 # BuyCoins Frontend coding challenge fetching github data using Graphql 
 # view page  https://godfreysam.github.io/github_project_page/
 
-<img src="github_project_page/stage/image/demo.gif" width="500">
+<img src="https://github.com/GodfreySam/github_project_page/blob/master/stage/image/demo.gif" width="600">
