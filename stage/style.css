@@ -474,11 +474,12 @@ img.profile-img {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 50rem;
+  margin-right: -10rem;
 }
 
 .header-aside-right i {
-  margin-right: 10rem;
+  padding: 0;
+  margin-right: -10rem;
 }
 
 .overview-heading {
