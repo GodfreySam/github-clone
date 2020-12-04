@@ -3,8 +3,11 @@ const axios = require("axios");
 // const { response } = require("express");
 require('dotenv').config();
 // console.log(process.env)
+const port = process.env.PORT || 8000
 const app = express();
-app.listen(8000, () => console.log('Listening at port 8000 ...'));
+app.listen(port, () => {
+  console.log(`Listening at ${port} ...`);
+});
 app.use(express.static("stage"));
 
 app.get('/api', async (request, response) => {
