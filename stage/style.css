@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* Global styles */
 html {
   font-size: 62.5%;
@@ -44,14 +43,6 @@ header i:hover {
   height: 2.5rem;
   width: 20rem;
   color: #ccc;
-}
-
-.sm-header-top {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 0.5rem;
 }
 
 img {
@@ -109,10 +100,10 @@ img.profile-img {
   display: flex;
 }
 
-.repo-area {
+/* .repo-area {
   margin-right: 15rem; 
   padding: 0;
-}
+} */
 
 .repo {
   display: flex;
@@ -192,8 +183,15 @@ i, button {
   cursor: pointer;
 }
 
-@media screen AND (max-width: 768px) {
-  
+@media screen AND (max-width: 720px) {
+  .sm-header-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+ }
+
   .profile {
   display: flex;
   flex-direction: row;
@@ -356,8 +354,8 @@ img.profile-img {
     grid-template-areas: 
       "header header header"
       "overview overview overview"
-      "profile profile profile"
-      "repo repo repo"
+      "profile repo repo"
+      "profile repo repo"
     ;
 
     grid-template-rows: auto auto auto auto;
@@ -390,11 +388,12 @@ img.profile-img {
 }
 
 .header-aside-right {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  margin-left: 15rem;
+  margin-right: auto; 
+  margin-left: 5rem; */
 }
 
 .header-aside-right i {
@@ -453,9 +452,9 @@ img.profile-img {
   }
 
   .lg-header {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
 }
 
   .sm-header {
@@ -476,12 +475,13 @@ img.profile-img {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: -10rem;
+  margin-right: auto; 
+  padding-left: 75rem;
 }
 
 .header-aside-right i {
   padding: 0;
-  margin-right: -10rem;
+  margin-right: 1rem;
 }
 
 .overview-heading {
@@ -490,7 +490,7 @@ img.profile-img {
 
 
 #lg-header-img {
-  width: 10%;
+  width: 7%;
 }
 
 img.profile-img {
