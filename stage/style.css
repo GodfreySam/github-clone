@@ -393,10 +393,11 @@ img.profile-img {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  margin-left: 15rem;
 }
 
 .header-aside-right i {
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .overview-heading {
@@ -405,7 +406,7 @@ img.profile-img {
 
 
 #lg-header-img {
-  width: 10%;
+  width: 15%;
 }
 
 img.profile-img {
@@ -419,8 +420,8 @@ img.profile-img {
 }
 
 .bio {
- margin-top: -10rem;
- margin-left: 18rem;
+ margin-top: 2rem;
+ margin-left: 10rem;
 }
 
 .primary-heading {
@@ -474,11 +475,12 @@ img.profile-img {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 50rem;
+  margin-right: -10rem;
 }
 
 .header-aside-right i {
-  margin-right: 10rem;
+  padding: 0;
+  margin-right: -10rem;
 }
 
 .overview-heading {

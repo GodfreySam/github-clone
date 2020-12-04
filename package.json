@@ -2,16 +2,18 @@
   "name": "github_graphql_project",
   "version": "1.0.0",
   "description": "",
-  "main": "data.js",
+  "main": "index.js",
   "scripts": {
     "devStart": "",
     "deploy": "gh-pages -d stage"
   },
-  "author": "",
+  "author": "Godfrey Samuel",
   "license": "ISC",
   "homepage": "https://GodfreySam.github.io/github_project_page",
   "dependencies": {
     "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-graphql": "^0.11.0",
     "gh-pages": "^3.1.0",
