@@ -1,17 +1,14 @@
 const express = require("express");
 const axios = require("axios");
-// const { response } = require("express");
-require('dotenv').config();
-// console.log(process.env)
-const port = process.env.PORT || 8000
+require("dotenv").config();
+const port = process.env.PORT || 8000;
 const app = express();
 app.listen(port, () => {
   console.log(`Listening at ${port} ...`);
 });
 app.use(express.static("stage"));
 
-app.get('/api', async (request, response) => {
-  
+app.get("/api", async (request, response) => {
   const profile_response = await axios.post(
     "https://api.github.com/graphql",
     {
@@ -27,7 +24,7 @@ app.get('/api', async (request, response) => {
     },
     {
       headers: {
-        Authorization: "bearer " + `${process.env.GITHUB_PROFILE_KEY}`,
+        Authorization: "bearer " + `${process.env.GITHUB_REPO_KEY}`,
       },
     }
   );
@@ -78,8 +75,10 @@ app.get('/api', async (request, response) => {
 
   const results = {
     profile: profile_data,
-    repos: repo_data
+    repos: repo_data,
   };
 
-  response.json(results);
+  const github_data = response.json(results);
+  response.status(200).send(github_data);
+  console.log(github_data);
 });
