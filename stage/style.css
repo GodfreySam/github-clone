@@ -26,6 +26,7 @@ header a {
   font-size: 1.5rem;
   font-weight: 100;
   text-decoration: none;
+  cursor: pointer;
 }
 
 header a:hover {
@@ -62,21 +63,29 @@ img {
   font-size: 1.8rem;
 }
 
-.title {
-  margin-top: 4rem;
-}
-
 .repo-overview {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 5rem;
+  margin: 5rem 0;
   border-bottom: 0.1rem solid rgb(230, 225, 225);
   background: rgb(253, 252, 252);
   position: sticky;
   top: 0;
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 }
+
+.overview-heading {
+    display: flex;
+    flex-direction: row;
+  }
+
+.overview-heading li {
+  list-style: none;
+  margin: 2rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  }
 
 .sub-info {
   display: flex;
@@ -156,6 +165,36 @@ button {
   color: #ccc;
   border: none;
   cursor: pointer;
+}
+
+/* Grid and responsive layout */
+
+.wrapper {
+  display: grid;
+
+  grid-template-rows: auto auto auto auto;
+
+  grid-template-areas:
+    "header"
+    "profile"
+    "overview"
+    "repo";
+}
+
+.wrapper .header {
+  grid-area: header;
+}
+
+.wrapper .profile-area {
+  grid-area: profile;
+}
+
+.wrapper .repo-overview {
+  grid-area: overview;
+}
+
+.wrapper .repo-area {
+  grid-area: repo;
 }
 
 @media screen AND (max-width: 720px) {
@@ -247,7 +286,13 @@ button {
   }
 
   .overview-heading {
-    margin: 2rem auto;
+    margin: 1rem auto;
+  }
+
+  .overview-heading li {
+  list-style: none;
+  margin: 2rem 0.7rem;
+  cursor: pointer;
   }
 
   #search-form {
@@ -298,100 +343,126 @@ button {
   .repo-overview {
     margin-top: 2rem;
   }
-}
 
-.wrapper {
-  display: grid;
-
-  grid-template-rows: auto auto auto auto;
-
-  grid-template-areas:
-    "header"
-    "profile"
-    "overview"
-    "repo";
-}
-
-.wrapper .header {
-  grid-area: header;
-}
-
-.wrapper .profile-area {
-  grid-area: profile;
-}
-
-.wrapper .repo-overview {
-  grid-area: overview;
-}
-
-.wrapper .repo-area {
-  grid-area: repo;
 }
 
 @media (min-width: 720px) {
   .wrapper {
     grid-template-areas:
       "header header header header"
+      "profile profile profile profile"
       "overview overview overview overview"
-      "profile repo repo repo"
-      "profile repo repo repo";
+      "repo repo repo repo";
 
     grid-template-rows: auto auto auto auto;
   }
 
-  .lg-header {
+   .sm-header-top {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    padding-bottom: 0.5rem;
   }
 
-  .sm-header {
+  .profile {
+    display: flex;
+    flex-direction: row;
+  }
+
+ .portrait {
+    margin-left: 7rem;
+    margin-top: 2rem;
+    width: 42%;
+  }
+
+  img.profile-img {
+    width: 42%;
+  }
+
+
+  .primary-heading {
+    color: #444444;
+    font-size: 2.5rem;
+    margin-left: -33rem;
+  }
+
+  .secondary-heading {
+    margin-top: -2rem;
+    margin-left: -33rem;
+  }
+
+  .bio {
+    margin-left: 15rem;
+    margin-top: 10rem;
+  }
+
+  .title {
+    margin-left: -33rem;
+    margin-top: 1rem;
+  }
+
+  .website {
+    margin-left: -33rem;
+  }
+
+  .lg-header {
     display: none;
   }
 
-  .header-aside-left {
-    display: flex;
-    align-items: center;
+  .sm-header {
+    display: block;
   }
 
-  .header-aside-left a {
-    margin: 0.5rem;
-  }
-
-  .header-input {
-    border-radius: 6%;
-    height: 2.5rem;
-    margin-left: -1rem;
-    width: 15rem;
-  }
-
-  .header-aside-right {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-right: auto;
-    margin-left: 10rem;
-  }
-
-  .header-aside-right i {
-    margin-right: 1rem;
-  }
-
-  .overview-heading {
+  .sidebar ul li {
+    list-style: none;
+    margin-left: -4rem;
     padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+    border-top: 0.09rem solid gray;
   }
 
-  #lg-header-img {
-    width: 10%;
+  .sidebar img {
+    width: 5%;
+    margin-right: 0.5rem;
+  }
+
+  .sidebar {
+    background-color: #203040;
+    color: #ffffff;
+  }
+
+  .sidebar a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 100;
+    text-decoration: none;
+  }
+
+  .sidebar input {
+    width: 98%;
+  }
+
+  .lg-header {
+    display: none;
+  }
+
+  #search-form {
+    position: relative;
+    margin-left: -5rem;
   }
 
   #search-form input {
     width: 100%;
     padding: 0.5rem;
-    margin: 1rem 0;
+    margin-left: 4rem;
+  }
+
+  .select {
+    margin-top: 2rem;
+    padding: 0.5rem;
+    background: lightgray;
+    font-weight: bold;
+    margin-left: 4rem;
   }
 
   .form-btn {
@@ -399,46 +470,31 @@ button {
     color: #ffffff;
     padding: 0.6rem;
     border-radius: 12%;
-    margin-left: 35rem;
+    margin-left: 15rem;
     width: 8rem;
   }
 
-  .profile-area {
-    margin-left: -10rem;
-    padding-right: 4rem;
-  }
-
-  .portrait {
-    margin-left: 7rem;
-    margin-top: 2rem;
-    width: 40%;
-  }
-
-  .profile {
-    margin-left: 3.5rem;
-    margin-top: 2rem;
-    line-height: 0.7rem;
-    font-size: smaller;
-  }
-
-  .bio {
-    margin-top: 1rem;
-    margin-left: 6rem;
-  }
-
-  .primary-heading {
-    color: #444444;
-    font-size: 2.5rem;
-  }
-
-  .secondary-heading {
-    margin-top: 0;
-  }
-
   .repo-area {
-    margin-left: -5rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
     padding: 0;
   }
+
+  .repo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    border-top: 0.1rem solid rgb(230, 225, 225);
+  }
+
+  .repo-overview {
+    margin-top: 2rem;
+  }
+  
 }
 
 @media (min-width: 1020px) {
@@ -454,7 +510,11 @@ button {
 
   .sm-header {
     display: none;
-    padding: 2rem;
+  }
+
+  .lg-header {
+    display: flex;
+    align-items: center;
   }
 
   .header-aside-left {
@@ -479,15 +539,8 @@ button {
     margin-right: 1rem;
   }
 
-  .overview-heading {
-    padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 2rem;
-  }
-
   #lg-header-img {
-    width: 10%;
+    width: 15%;
   }
 
   .portrait {
@@ -496,21 +549,30 @@ button {
     width: 40%;
   }
 
+  .title {
+  margin-top: 3rem;
+  }
+
+  .repo-area {
+    padding-right: 10rem;
+    margin-left: -10rem;
+  }
+
   #search-form {
     margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
   }
 
   #search-form input {
-    width: 45%;
+    width: 30%;
     padding: 0.5rem;
     margin-top: 1rem;
   }
 
-  .repo-area {
-    margin-left: 2rem;
-    padding: 0;
+  .search-select {
+    
   }
 
   .select {
@@ -518,6 +580,7 @@ button {
     padding: 0.5rem;
     background: lightgray;
     font-weight: bold;
+    width: 10rem;
   }
 
   .form-btn {
@@ -525,20 +588,23 @@ button {
     color: #ffffff;
     padding: 0.6rem;
     border-radius: 12%;
-    margin-left: 25rem;
     width: 8rem;
   }
 
-  .profile {
-    margin-left: 10rem;
-    margin-right: -30rem;
-    margin-top: 2rem;
-    line-height: 0.7rem;
-    font-size: large;
+
+  .portrait {
+    margin-top: -5rem;
+    width: 70%;
   }
+
+  img.profile-img {
+    width: 70%;
+  }
+
   .bio {
-    margin-top: 4rem;
-    margin-left: 5rem;
+    margin-left: 2rem;
+    margin-top: 25rem;
+    line-height: 0.7rem;
   }
 
   .primary-heading {

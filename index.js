@@ -8,11 +8,12 @@ app.listen(port, () => {
 });
 app.use(express.static("stage"));
 
-app.get("/api", async (request, response) => {
-  const profile_response = await axios.post(
-    "https://api.github.com/graphql",
-    {
-      query: `query { 
+app.get("/api", async (request, response, next) => {
+  try {
+    const profile_response = await axios.post(
+      "https://api.github.com/graphql",
+      {
+        query: `query { 
             user(login: "GodfreySam"){
               id
               avatarUrl
@@ -21,18 +22,18 @@ app.get("/api", async (request, response) => {
               websiteUrl
             }
           }`,
-    },
-    {
-      headers: {
-        Authorization: "bearer " + `${process.env.GITHUB_REPO_KEY}`,
       },
-    }
-  );
+      {
+        headers: {
+          Authorization: "bearer " + `${process.env.GITHUB_REPO_KEY}`,
+        },
+      }
+    );
 
-  const repo_response = await axios.post(
-    "https://api.github.com/graphql",
-    {
-      query: `query { 
+    const repo_response = await axios.post(
+      "https://api.github.com/graphql",
+      {
+        query: `query { 
           repositoryOwner(login: "GodfreySam") {
               ... on User {
                 repositories(last: 10) {
@@ -62,23 +63,24 @@ app.get("/api", async (request, response) => {
               }
             }
           }`,
-    },
-    {
-      headers: {
-        Authorization: "bearer " + `${process.env.GITHUB_REPO_KEY}`,
       },
-    }
-  );
+      {
+        headers: {
+          Authorization: "bearer " + `${process.env.GITHUB_REPO_KEY}`,
+        },
+      }
+    );
 
-  const profile_data = await profile_response.data;
-  const repo_data = await repo_response.data;
+    const profile_data = await profile_response.data;
+    const repo_data = await repo_response.data;
 
-  const results = {
-    profile: profile_data,
-    repos: repo_data,
-  };
+    const results = {
+      profile: profile_data,
+      repos: repo_data,
+    };
 
-  const github_data = response.json(results);
-  response.status(200).send(github_data);
-  console.log(github_data);
+    response.json(results);
+  } catch (error) {
+    next(error);
+  }
 });

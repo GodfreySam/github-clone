@@ -35,17 +35,17 @@ async function getRepos() {
   const nodes = await Promise.all(myRepos);
   Object.values(nodes).map((element) => {
     for (let el of Object.values(element)) {
-      el.forEach(item => {
+      el.forEach((item) => {
         let ownerName = item.node.owner.resourcePath
           .split("")
           .slice(1)
           .join("");
 
-         document.querySelectorAll(".heading").forEach((el) => {
-           el.innerHTML = ownerName;
-         });
-           let output = document.querySelector(".repo-item");
-           output.innerHTML  += `
+        document.querySelectorAll(".heading").forEach((el) => {
+          el.innerHTML = ownerName;
+        });
+        let output = document.querySelector(".repo-item");
+        output.innerHTML += `
                       <div class="repo">
                         <div class="line">
                           <h2 class="repo-title">${item.node.name}</h2>
@@ -56,7 +56,10 @@ async function getRepos() {
                               }</span>
                           <div class="date-info">
                             <span class="updated-time">Updated on ${moment(
-                              item.node.updatedAt.split("").splice(0, 10).join("")
+                              item.node.updatedAt
+                                .split("")
+                                .splice(0, 10)
+                                .join("")
                             ).format("MMM, DD")}</span></div>
                         </div>
                         </div>
@@ -65,7 +68,7 @@ async function getRepos() {
                         </div>
                       </div>
                   `;
-      })
+      });
     }
-  })
+  });
 }
