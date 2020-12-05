@@ -7,7 +7,7 @@ app.listen(port, () => {
   console.log(`Listening at ${port} ...`);
 });
 app.use(express.static("stage"));
-
+app.use(express.json({ limit: '1mb' }));
 app.get("/api", async (request, response, next) => {
   try {
     const profile_response = await axios.post(
