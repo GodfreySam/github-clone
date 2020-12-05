@@ -50,16 +50,8 @@ img {
   display: block;
 }
 
-.profile-area {
-  margin: 0;
-}
-
 .portrait, img {
   border-radius: 50%;
-}
-
-img.profile-img {
-  width: 45%;
 }
 
 .secondary-heading, .sm-secondary-heading {
@@ -99,11 +91,6 @@ img.profile-img {
 .sm-img {
   display: flex;
 }
-
-/* .repo-area {
-  margin-right: 15rem; 
-  padding: 0;
-} */
 
 .repo {
   display: flex;
@@ -214,7 +201,8 @@ i, button {
 }
 
 .bio {
- margin-left: -1rem;
+ margin-left: 5rem;
+ margin-top: 4rem;
 }
 
  .title {
@@ -322,9 +310,9 @@ img.profile-img {
 
 .wrapper {
   display: grid;
-
+  
   grid-template-rows: auto auto auto auto;
-
+  
   grid-template-areas: 
     "header"
     "profile"
@@ -352,12 +340,12 @@ img.profile-img {
 @media (min-width: 720px) {
   .wrapper {
     grid-template-areas: 
-      "header header header"
-      "overview overview overview"
-      "profile repo repo"
-      "profile repo repo"
+      "header header header header"
+      "overview overview overview overview"
+      "profile repo repo repo"
+      "profile repo repo repo"
     ;
-
+    
     grid-template-rows: auto auto auto auto;
   }
 
@@ -388,12 +376,12 @@ img.profile-img {
 }
 
 .header-aside-right {
-  /* display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   margin-right: auto; 
-  margin-left: 5rem; */
+  margin-left: 10rem;
 }
 
 .header-aside-right i {
@@ -401,27 +389,44 @@ img.profile-img {
 }
 
 .overview-heading {
-  margin: 2rem 2rem 2rem 10rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 }
-
 
 #lg-header-img {
   width: 15%;
 }
 
-img.profile-img {
-  width: 20%;
+#search-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem 0;
 }
 
+  .profile-area {
+    margin-left: -10rem;
+  }
+
+  .portrait {
+ margin-left: 5rem;
+ margin-top: 2rem;
+}
+
+  img.profile-img {
+    width: 40%;
+  }
+
 .profile {
-  margin-left: 5rem;
+  margin-left: 6rem;
   margin-top: 2rem;
   line-height: 0.7rem;
 }
 
 .bio {
- margin-top: 2rem;
- margin-left: 10rem;
+ margin-top: 1rem;
+ margin-left: 6rem;
 }
 
 .primary-heading {
@@ -433,10 +438,11 @@ img.profile-img {
   margin-top: 0;
 }
 
-.repo-area {
-  margin-right: 2rem; 
-  padding: 0;
-}
+ .repo-area {
+   margin-left: -5rem; 
+   padding: 0; 
+} 
+
 }
 
 
@@ -450,12 +456,6 @@ img.profile-img {
 
     grid-template-rows: auto auto auto auto;
   }
-
-  .lg-header {
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center; */
-}
 
   .sm-header {
   display: none;
@@ -474,23 +474,25 @@ img.profile-img {
 .header-aside-right {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
   margin-right: auto; 
-  padding-left: 75rem;
+  margin-left: 65rem;
 }
 
 .header-aside-right i {
-  padding: 0;
   margin-right: 1rem;
 }
 
 .overview-heading {
-  margin: 2rem 2rem 2rem 10rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
 }
 
-
 #lg-header-img {
-  width: 7%;
+  width: 10%;
 }
 
 img.profile-img {
@@ -515,4 +517,5 @@ img.profile-img {
 
 .secondary-heading {
   margin-top: 0;
+}
 }
