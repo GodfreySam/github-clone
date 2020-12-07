@@ -9,6 +9,7 @@ app.listen(port, () => {
 app.use(express.static("stage"));
 app.use(express.json({ limit: '1mb' }));
 app.get("/api", async (request, response, next) => {
+  // console.log(request);
   try {
     const profile_response = await axios.post(
       "https://api.github.com/graphql",

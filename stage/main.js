@@ -1,9 +1,13 @@
 getProfile();
 
 async function getProfile() {
-  const response = await fetch("/api");
+  const req_options = {
+    method: "GET",
+    headers: { "Content-type": "application/json;charset=UTF-8" },
+  };
+  const response = await fetch("/api", req_options);
   const data = await response.json();
-  // console.log(data.profile.data.user);
+  // console.log(data);
   const userItems = data.profile.data.user;
   document.querySelector("#lg-header-img").src = userItems.avatarUrl;
   document.querySelector("#sm-header-img").src = userItems.avatarUrl;
