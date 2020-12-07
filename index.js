@@ -79,7 +79,8 @@ app.get("/api", async (request, response, next) => {
       repos: repo_data,
     };
 
-    response.json(results);
+    return response.json(results);
+
   } catch (error) {
     next(error);
   }
