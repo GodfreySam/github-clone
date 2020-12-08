@@ -1,14 +1,12 @@
 const express = require("express");
 const axios = require("axios");
+const path = require('path');
 require("dotenv").config();
 const port = process.env.PORT || 8000;
 const app = express();
-app.listen(port, () => {
-  console.log(`Listening at ${port} ...`);
-});
-app.use(express.static("stage"));
-app.use(express.json({ limit: '1mb' }));
-app.get("/api", async (request, response, next) => {
+
+app.use(express.static(path.join(__dirname, "stage")))
+.get("/api", async (request, response, next) => {
   // console.log(request);
   try {
     const profile_response = await axios.post(
@@ -85,4 +83,6 @@ app.get("/api", async (request, response, next) => {
   } catch (error) {
     next(error);
   }
+}).listen(port, () => {
+  console.log(`Listening at ${port} ...`);
 });
