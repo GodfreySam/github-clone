@@ -8,7 +8,7 @@ async function getProfile() {
   const response = await fetch("/api", req_options);
   const data = await response.json();
   // console.log(data);
-  const userItems = data.profile.data.user;
+  const userItems = data.bio.data.user;
   document.querySelector("#lg-header-img").src = userItems.avatarUrl;
   document.querySelector("#sm-header-img").src = userItems.avatarUrl;
   let output = document.querySelector(".profile-area");
@@ -30,7 +30,8 @@ getRepos();
 async function getRepos() {
   const response = await fetch("/api");
   const data = await response.json();
-  const repoItems = data.repos.data.repositoryOwner;
+  // console.log(data);
+  const repoItems = data.item.data.repositoryOwner;
   const repos = await Promise.all(Object.values(repoItems));
   const myRepos = Object.values(repos).map(async (repo) => {
     const myRepo = await repo;

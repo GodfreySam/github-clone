@@ -1,12 +1,14 @@
 const express = require("express");
 const axios = require("axios");
-const path = require('path');
+const path = require("path");
 require("dotenv").config();
 const port = process.env.PORT || 8000;
 const app = express();
 
-app.use(express.static(path.join(__dirname, "stage")))
-.get("/api", async (request, response, next) => {
+const database = [];
+
+app.use(express.static(path.join(__dirname, "stage")));
+app.get("/api", async (request, response, next) => {
   // console.log(request);
   try {
     const profile_response = await axios.post(
@@ -70,19 +72,25 @@ app.use(express.static(path.join(__dirname, "stage")))
       }
     );
 
-    const profile_data = await profile_response.data;
-    const repo_data = await repo_response.data;
+    const profile_data = await profile_response;
+    const repo_data = await repo_response;
 
     const results = {
-      profile: profile_data,
-      repos: repo_data,
+      profile: profile_data.data,
+      repos: repo_data.data,
     };
 
-    return response.json(results);
-
+    database.push(results);
+    console.log(database);
+    return response.json({
+      bio: results.profile,
+      item: results.repos
+    });
   } catch (error) {
     next(error);
   }
-}).listen(port, () => {
+});
+
+app.listen(port, () => {
   console.log(`Listening at ${port} ...`);
 });
