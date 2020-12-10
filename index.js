@@ -4,11 +4,13 @@ const path = require("path");
 require("dotenv").config();
 const port = process.env.PORT || 8000;
 const app = express();
-
-const database = [];
+const cors = require('cors');
+const Datastore = require('nedb');
+const database = new Datastore('database.db');
+database.loadDatabase();
 
 app.use(express.static(path.join(__dirname, "stage")));
-app.get("/api", async (request, response, next) => {
+app.get("/api", cors(), async (request, response, next) => {
   // console.log(request);
   try {
     const profile_response = await axios.post(
@@ -74,14 +76,14 @@ app.get("/api", async (request, response, next) => {
 
     const profile_data = await profile_response;
     const repo_data = await repo_response;
-
+    
     const results = {
       profile: profile_data.data,
       repos: repo_data.data,
     };
 
-    database.push(results);
-    console.log(database);
+    database.insert(results);
+    
     return response.json({
       bio: results.profile,
       item: results.repos
