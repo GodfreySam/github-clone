@@ -1,9 +1,13 @@
 {
   "name": "github_graphql_project",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.15.1"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "devStart": "nodemon index.js",
     "deploy": "gh-pages -d stage"
   },
