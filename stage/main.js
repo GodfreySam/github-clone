@@ -5,9 +5,9 @@ async function getProfile() {
     method: "GET",
     headers: { "Content-type": "application/json;charset=UTF-8" },
   };
-  const response = await fetch("/api", req_options);
+  const response = await fetch("/about", req_options);
   const data = await response.json();
-  // console.log(data);
+  console.log(data);
   const userItems = data.bio.data.user;
   document.querySelector("#lg-header-img").src = userItems.avatarUrl;
   document.querySelector("#sm-header-img").src = userItems.avatarUrl;
@@ -28,9 +28,9 @@ async function getProfile() {
 }
 getRepos();
 async function getRepos() {
-  const response = await fetch("/api");
+  const response = await fetch("/repo");
   const data = await response.json();
-  // console.log(data);
+  console.log(data);
   const repoItems = data.item.data.repositoryOwner;
   const repos = await Promise.all(Object.values(repoItems));
   const myRepos = Object.values(repos).map(async (repo) => {
