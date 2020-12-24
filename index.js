@@ -6,10 +6,10 @@ const port = process.env.PORT || 8000;
 const app = express();
 const cors = require('cors');
 const Datastore = require('nedb');
-const aboutDB = new Datastore('about.db');
-const repoDB = new Datastore('repo.db');
-aboutDB.loadDatabase();
-repoDB.loadDatabase();
+const aboutDB = new Datastore();
+const repoDB = new Datastore();
+// aboutDB.loadDatabase();
+// repoDB.loadDatabase();
 
 app.use(express.static("stage"));
 app.get("/about", cors(), async (request, response, next) => {
