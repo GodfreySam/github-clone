@@ -1,4 +1,4 @@
-BuyCoins Frontend coding challenge fetching github data using Graphql and recreating Github profile/repository page;
+fetching github data using Graphql and recreating Github profile/repository page;
 check it out at:
 https://github-page-clone.herokuapp.com/
 
