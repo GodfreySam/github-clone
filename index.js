@@ -19,7 +19,7 @@ app.get("/about", cors(), async (request, response, next) => {
       "https://api.github.com/graphql",
       {
         query: `query { 
-            user(login: ${process.env.USER_NAME}){
+            user(login: "${process.env.USER_NAME}"){
               id
               avatarUrl
               name
@@ -57,7 +57,7 @@ app.get("/repo", cors(), async (request, response, next) => {
       "https://api.github.com/graphql",
       {
         query: `query { 
-          repositoryOwner(login: ${process.env.USER_NAME}) {
+          repositoryOwner(login: "${process.env.USER_NAME}") {
               ... on User {
                 repositories(last: 10) {
                   edges {
