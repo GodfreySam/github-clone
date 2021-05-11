@@ -5,21 +5,21 @@ require("dotenv").config();
 const port = process.env.PORT || 8000;
 const app = express();
 const cors = require('cors');
-const Datastore = require('nedb');
-const aboutDB = new Datastore();
-const repoDB = new Datastore();
+// const Datastore = require('nedb');
+// const aboutDB = new Datastore();
+// const repoDB = new Datastore();
 // aboutDB.loadDatabase();
 // repoDB.loadDatabase();
 
 app.use(express.static("stage"));
 app.get("/about", cors(), async (request, response, next) => {
-  // console.log(request);
+  
   try {
     const profile_response = await axios.post(
       "https://api.github.com/graphql",
       {
         query: `query { 
-            user(login: "GodfreySam"){
+            user(login: ${process.env.USER_NAME}){
               id
               avatarUrl
               name
@@ -41,24 +41,23 @@ app.get("/about", cors(), async (request, response, next) => {
       profile: profile_data.data
     };
 
-    aboutDB.insert(results);
+    // aboutDB.insert(results);
     
     return response.json({
       bio: results.profile
     });
   } catch (error) {
-    next(error);
+    console.log(error);
   }
 });
 
 app.get("/repo", cors(), async (request, response, next) => {
-  // console.log(request);
   try {
     const repo_response = await axios.post(
       "https://api.github.com/graphql",
       {
         query: `query { 
-          repositoryOwner(login: "GodfreySam") {
+          repositoryOwner(login: ${process.env.USER_NAME}) {
               ... on User {
                 repositories(last: 10) {
                   edges {
@@ -101,13 +100,13 @@ app.get("/repo", cors(), async (request, response, next) => {
       repos: repo_data.data,
     };
 
-    repoDB.insert(results);
+    // repoDB.insert(results);
 
     return response.json({
       item: results.repos,
     });
   } catch (error) {
-    next(error);
+    console.log(error)
   }
 });
 
