@@ -153,6 +153,10 @@ img {
   width: 7rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 i,
 button {
   cursor: pointer;
@@ -571,10 +575,6 @@ button {
     margin-top: 1rem;
   }
 
-  .search-select {
-    
-  }
-
   .select {
     margin-top: 1rem;
     padding: 0.5rem;
@@ -590,7 +590,6 @@ button {
     border-radius: 12%;
     width: 8rem;
   }
-
 
   .portrait {
     margin-top: -5rem;
