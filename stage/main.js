@@ -21,7 +21,7 @@ async function getProfile() {
         <h1 class="primary-heading">${userItems.name}</h1>
         <h2 class="secondary-heading heading"></h2>
         <p class="title">${userItems.bio}<p>
-        <p class="website"><i class="fa fa-link"></i> ${userItems.websiteUrl}<p>
+        <p class="website"><i class="fa fa-link"></i> <a href="${userItems.websiteUrl}">${userItems.websiteUrl}</a><p>
       </div>
     </div>
   `;
